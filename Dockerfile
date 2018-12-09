@@ -1,0 +1,5 @@
+FROM alpine:latest
+
+RUN apk add openssh
+
+ENTRYPOINT ssh -N $SSH_EXTRA_ARGS -R $REMOTE_IP:$REMOTE_PORT:$LAN_IP:$LAN_PORT -l $SSH_USER $SSH_HOST
